@@ -1,0 +1,61 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+body {
+    background: #191E22 !important;
+    font-family: 'Inconsolata', monospace;
+    color: #42C920;
+    font-weight: 400;
+}
+.buscar {
+    margin-right: 15px !important;
+    margin-left: 15px !important;
+}
+input:invalid {
+    color: red;
+}
+.check-genero {
+    .color: red !important;
+}
+.portada {
+    /*height: 400px !important;*/
+    background: #191E22 !important;
+}
+.foto-portada {
+    border: 2px solid #0F7095;
+}
+.calificacion {
+    font-size: 12px;
+}
+.año {
+    font-size: 16px;
+    color: #B7B9B9;
+}
+.foto-pelicula {
+    width: auto !important;
+}
+#global {
+    height: 150px;
+    width: auto;
+    border: 1px solid #ddd;
+    background: #f1f1f1;
+    overflow-y: scroll;
+}
+#mensajes {
+    height: auto;
+}
+.texto {
+    padding: 4px;
+    background: #fff;
+}
+.sinopsis {
+    padding: 10px;
+    text-align: justify;
+}
+.fondo {
+    /*font-family: 'Open Sans Condensed', sans-serif;*/
+    background-color: rgba(0, 0, 0, 1);
+    -webkit-box-shadow: 0px 0px 2px 2px red;
+    -moz-box-shadow: 0px 0px 2px 2px red;
+}
