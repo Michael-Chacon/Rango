@@ -88,9 +88,12 @@ require_once '../php/session.php';?>
 								</ul>
         				</div>
         			</article>	
-        			<section class="row mt-4 text-center">
+        			<section class="row mt-3 text-center">
         				<article class="col-md-6">
         					<h5>Generos</h5>
+        					<div id="generosMo">
+        						
+        					</div>
         					Lorem ipsum dolor sit amet consectetur adipisicing.
         				</article>
         				<article class="col-md-6">
@@ -98,9 +101,9 @@ require_once '../php/session.php';?>
         					Lorem ipsum dolor sit amet consectetur adipisicing elit.
         				</article>
         			</section>
-        				<div id="global" class="bg-dark mt-4">
+        				<div id="global" class="bg-dark mt-3">
 					 	 <div id="mensajes">
-						  	<p class="sinopsisPeli">
+						  	<p class="sinopsisPeli sinopsis">
 			        			El teniente Somerset, del departamento de homicidios, está a punto de jubilarse y ser reemplazado por el ambicioso y brillante detective David Mills. Ambos tendrán que colaborar en la resolución de una serie de asesinatos cometidos por un psicópata que toma como base la relación de los siete pecados capitales: gula, pereza, soberbia, avaricia, envidia, lujuria e ira. Los cuerpos de las víctimas, sobre los que el asesino se ensaña de manera impúdica, se convertirán para los policías en un enigma que les obligará a viajar al horror y la barbarie más absoluta..
 			        		</p>
 					  </div>
