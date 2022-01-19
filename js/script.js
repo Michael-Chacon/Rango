@@ -179,11 +179,6 @@ function guardarActor() {
     });
 }
 listarGeneros();
-// listar los generos
-$("#crearP").click(function(e) {
-    Generos();
-    Actores();
-});
 // listado de generos para claseficar la peli
 function Generos() {
     $('#listGenders').empty();
@@ -235,6 +230,11 @@ $("#saveMovie").click(function(e) {
     console.log('en accion');
     guardarPelicula();
 });
+// listar los generos
+$("#crearP").click(function(e) {
+    Generos();
+    Actores();
+});
 
 function guardarPelicula() {
     var generos = $("input[name='id_genero[]']:checked").map(function() {
@@ -253,6 +253,8 @@ function guardarPelicula() {
     datos.append('id_genero', generos);
     datos.append('actores', actores);
     datos.append('img', files);
+    console.log(generos);
+    console.log(actores);
     $.ajax({
         type: 'post',
         url: '../php/peliculas/guardarPelicula.php',
@@ -273,8 +275,6 @@ function guardarPelicula() {
                 $("#paisP").val('');
                 $("#calificacion").val('');
                 $("#sinopsis").val('');
-                $(generos).val('');
-                $(actores).val('');
                 $("#imgP").val('');
                 $("#crearPelicula").modal("toggle");
                 portadaPeliculas();
@@ -349,8 +349,9 @@ function obtenerPelicula(peli_id) {
         processData: false,
         contentType: false,
         success: function(datosPelicula) {
-            // console.log(datosPelicula[0]);
-            // console.log(datosPelicula[1]);
+            console.log(datosPelicula[0]);
+            console.log(datosPelicula[1]);
+            console.log(datosPelicula[2]);
             var img = '<img src="../images/' + datosPelicula[0][0].img + '" class="img-fluid rounded-start" alt="...">';
             $("#imgPelicula").html(img);
             $("#tituloPelicula").html(datosPelicula[0][0].nombre_p);
@@ -362,10 +363,22 @@ function obtenerPelicula(peli_id) {
             var generosPe = [];
             $.each(datosPelicula[1], function(llave, valor) {
                 if (llave >= 0) {
-                    var badge = '<span class="badge bg-primary">' + datosPelicula[1][llave].nombre_g + datosPelicula[1][llave].id_genero + '</span>';
-                    generosPe.push(badge);
+                    var badgeG = '<h6><span class="badge bg-danger fuenteG">' + datosPelicula[1][llave].nombre_g + '</span><h6/>';
+                    generosPe.push(badgeG);
                 }
-                $("#generosMo").append(generosPe.join(""));
+            });
+            var actoresPe = [];
+            $.each(datosPelicula[2], function(llave, valor) {
+                if (llave >= 0) {
+                    var badgeA = '<span class="badge bg-success fuenteG">' + datosPelicula[2][llave].nombre_a + '</span>';
+                    actoresPe.push(badgeA);
+                }
+            });
+            $("#generosMov").append(generosPe.join(""));
+            $("#actoresMov").append(actoresPe.join(""));
+            $("#cerrarModal").click(function(e) {
+                $("#generosMov").html('');
+                $("#actoresMov").html('');
             });
         }
     });

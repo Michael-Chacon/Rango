@@ -48,13 +48,9 @@ require_once '../php/session.php';?>
 	        </section>
         </main>
         <!-- ------------------------------------------------------INICIO DE LOS MODALES------------------------ -->
-			<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
-</button>
 
 <!-- Modal -->
-<div class="modal fade" id="infoPelicula" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="infoPelicula" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
   <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content fondo ">
       <div class="modal-body">
@@ -66,50 +62,49 @@ require_once '../php/session.php';?>
         			<h2 class="text-center mb-3" id="tituloPelicula">Seven</h2>
         			<article class="row justify-content-center text-center">
         				<div class="col-md-10">
-							    <ul class="list-group bg-dark">
-								  <li class="list-group-item">
+							    <ul class="list-group ">
+								  <li class="list-group-item bg-dark">
 								  	<div class="row">
 								  		<div class="col text-muted">Pais</div>
-								  		<div class="col small" id="paisPeli">Estados Unidos</div>
+								  		<div class="col small datosPeli" id="paisPeli"></div>
 								  	</div>
 								  </li>
-								  <li class="list-group-item">
+								  <li class="list-group-item bg-dark">
 								  	<div class="row">
 								  		<div class="col text-muted">Año</div>
-								  		<div class="col small" id="añoPeli">1995</div>
+								  		<div class="col small datosPeli" id="añoPeli"></div>
 								  	</div>
 								  </li>
-								  <li class="list-group-item">
+								  <li class="list-group-item bg-dark">
 								  	<div class="row">
 								  		<div class="col text-muted">Calificación</div>
-								  		<div class="col small" id="calificacionPeli">9.5</div>
+								  		<div class="col small datosPeli" id="calificacionPeli"></div>
 								  	</div>
 								  </li>
 								</ul>
         				</div>
-        			</article>	
+        			</article>
         			<section class="row mt-3 text-center">
         				<article class="col-md-6">
         					<h5>Generos</h5>
-        					<div id="generosMo">
-        						
-        					</div>
-        					Lorem ipsum dolor sit amet consectetur adipisicing.
+        					<div id="generosMov"></div>
         				</article>
         				<article class="col-md-6">
         					<h5>Actores</h5>
-        					Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        					<div id="actoresMov"></div>
         				</article>
         			</section>
         				<div id="global" class="bg-dark mt-3">
 					 	 <div id="mensajes">
 						  	<p class="sinopsisPeli sinopsis">
-			        			El teniente Somerset, del departamento de homicidios, está a punto de jubilarse y ser reemplazado por el ambicioso y brillante detective David Mills. Ambos tendrán que colaborar en la resolución de una serie de asesinatos cometidos por un psicópata que toma como base la relación de los siete pecados capitales: gula, pereza, soberbia, avaricia, envidia, lujuria e ira. Los cuerpos de las víctimas, sobre los que el asesino se ensaña de manera impúdica, se convertirán para los policías en un enigma que les obligará a viajar al horror y la barbarie más absoluta..
 			        		</p>
 					  </div>
         		</div>
         	</div>
         </div>
+        <div class="d-grid gap-2 mt-3">
+		  <button class="btn btn-outline-danger" type="button" data-bs-dismiss="modal" id="cerrarModal">Cerrar</button>
+		</div>
       </div>
     </div>
   </div>

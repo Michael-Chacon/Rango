@@ -18,12 +18,12 @@ if (isset($_POST)) {
 
 # limpiar y combertir el string en un array
     $id_gender = $_POST["id_genero"];
-    $limpiar_genero = str_replace(",", '', $id_gender);
-    $id_generos = str_split($limpiar_genero);
+    $limpiar_genero = str_replace(",", ' ', $id_gender);
+    $id_generos = explode(' ', $limpiar_genero);
 
     $id_actor = $_POST["actores"];
-    $limpiar_actores = str_replace(",", '', $id_actor);
-    $id_actores = str_split($limpiar_actores);
+    $limpiar_actores = str_replace(",", ' ', $id_actor);
+    $id_actores = explode(' ', $limpiar_actores);
 
     $name = $_POST['nombre'];
     $year = $_POST['año'];
@@ -50,20 +50,28 @@ if (isset($_POST)) {
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
-        # registrar los generos a los que pertenece la pelicula
-        foreach ($id_generos as $genero) {
-            $generos = $conexion->prepare("INSERT INTO peliculageneros VALUES(:gender, :movie);");
-            $generos->bindParam(":gender", $genero, PDO::PARAM_INT);
-            $generos->bindParam(":movie", $peli_id, PDO::PARAM_INT);
-            $generos->execute();
-        }
+        try {
 
-        # registrar los actores que participan en la pelicula
-        foreach ($id_actores as $actor) {
-            $actores = $conexion->prepare("INSERT INTO peliculaactores VALUES(:actor, :movieId);");
-            $actores->bindParam(":actor", $actor, PDO::PARAM_INT);
-            $actores->bindParam(":movieId", $peli_id, PDO::PARAM_INT);
-            $actores->execute();
+            # registrar los generos a los que pertenece la pelicula
+            foreach ($id_generos as $genero) {
+                $generos = $conexion->prepare("INSERT INTO peliculageneros VALUES(:gender, :movie);");
+                $generos->bindParam(":gender", $genero, PDO::PARAM_INT);
+                $generos->bindParam(":movie", $peli_id, PDO::PARAM_INT);
+                $generos->execute();
+            }
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+        try {
+            # registrar los actores que participan en la pelicula
+            foreach ($id_actores as $actor) {
+                $actores = $conexion->prepare("INSERT INTO peliculaactores VALUES(:actor, :movieId);");
+                $actores->bindParam(":actor", $actor, PDO::PARAM_INT);
+                $actores->bindParam(":movieId", $peli_id, PDO::PARAM_INT);
+                $actores->execute();
+            }
+        } catch (PDOException $e) {
+            echo $e->getMessage();
         }
 
         echo "ok";
