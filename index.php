@@ -28,6 +28,7 @@
     </head>
     <body>
     	<?php require_once 'views/menu.php'?>
+    	<h1>hola perros</h1>
     	<div class="container-fluid">
     		<section class="row" id="listadoPeliculas">
 	        	<article class="col-md-2">

@@ -2,7 +2,6 @@
 require_once '../../database/database.php';
 require_once '../validaciones.php';
 session_start();
-
 if (isset($_POST)) {
     $file = $_FILES['img'];
     $filename = $file['name'];
@@ -52,7 +51,7 @@ if (isset($_POST)) {
         }
         try {
 
-            # registrar los generos a los que pertenece la pelicula
+# registrar los generos a los que pertenece la pelicula
             foreach ($id_generos as $genero) {
                 $generos = $conexion->prepare("INSERT INTO peliculageneros VALUES(:gender, :movie);");
                 $generos->bindParam(":gender", $genero, PDO::PARAM_INT);
@@ -63,7 +62,7 @@ if (isset($_POST)) {
             echo $e->getMessage();
         }
         try {
-            # registrar los actores que participan en la pelicula
+# registrar los actores que participan en la pelicula
             foreach ($id_actores as $actor) {
                 $actores = $conexion->prepare("INSERT INTO peliculaactores VALUES(:actor, :movieId);");
                 $actores->bindParam(":actor", $actor, PDO::PARAM_INT);
